@@ -27,6 +27,7 @@ public class DrivingActivity extends AppCompatActivity {
     ImageView image_face;
     TextView message_txt;
     TextView view_color;
+    TextView instance_txt;
 
     boolean isClicked;
 
@@ -39,6 +40,7 @@ public class DrivingActivity extends AppCompatActivity {
         isClicked = false;
         ttsHelper = new TTSHelper();
 
+        instance_txt = (TextView) findViewById(R.id.instance_txt);
         view_color = (TextView) findViewById(R.id.view_color);
         message_txt = (TextView) findViewById(R.id.message_txt);
         image_face = (ImageView) findViewById(R.id.image_face);
@@ -50,7 +52,6 @@ public class DrivingActivity extends AppCompatActivity {
                 finish();
             }
         });
-
 
         image_face.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +89,28 @@ public class DrivingActivity extends AppCompatActivity {
                         image_face.setImageResource(R.mipmap.ic_good);
                     }
                 }, 2970);
+            }
+        });
+
+        instance_txt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String mText;
+                mText = "기사님 제가 정말정말 급해서 화장실을 가야만 할 것 같은 느낌적인 느낌이 드는데 제발";
+                mTextMessage = new String[]{mText};
+                mNaverTTSTask = new NaverTTSTask();
+                mNaverTTSTask.execute(mTextMessage);
+                isClicked = false;
+
+                message_txt.setText(mText);
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        message_txt.setText(getString(R.string.nothing_txt));
+                    }
+                }, 5000);
             }
         });
     }

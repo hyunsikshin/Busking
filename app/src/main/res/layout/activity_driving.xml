@@ -31,13 +31,26 @@
         android:layout_height="200dp"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/image_face"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_weight="1"
-            android:src="@mipmap/ic_good" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/instance_txt"
+                android:layout_width="80dp"
+                android:layout_height="80dp" />
+
+            <ImageView
+                android:id="@+id/image_face"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_gravity="right"
+                android:src="@mipmap/ic_good" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/message_txt"
@@ -57,14 +70,14 @@
 
     <LinearLayout
         android:id="@+id/btn_end"
-        android:padding="10dp"
-        android:background="@drawable/thm_press"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_marginRight="20dp"
         android:layout_marginTop="25dp"
-        android:orientation="horizontal">
+        android:background="@drawable/thm_press"
+        android:orientation="horizontal"
+        android:padding="10dp">
 
         <ImageView
             android:layout_width="20dp"
