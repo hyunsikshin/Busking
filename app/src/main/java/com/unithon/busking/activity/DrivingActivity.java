@@ -3,7 +3,9 @@ package com.unithon.busking.activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -26,6 +28,7 @@ public class DrivingActivity extends AppCompatActivity {
     TextView message_txt;
     TextView view_color;
 
+    boolean isClicked;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,7 @@ public class DrivingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_driving);
         mContext = this;
 
+        isClicked = false;
         ttsHelper = new TTSHelper();
 
         view_color = (TextView) findViewById(R.id.view_color);
@@ -47,13 +51,45 @@ public class DrivingActivity extends AppCompatActivity {
             }
         });
 
-        String mText;
-        mText = String.valueOf(message_txt.getText());
-        mTextMessage = new String[]{mText};
 
-        /*mNaverTTSTask = new NaverTTSTask();
-        mNaverTTSTask.execute(mTextMessage);*/
+        image_face.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isClicked) {
+                    String mText;
+                    mText = "기사님 추워여우어으";
+                    mTextMessage = new String[]{mText};
+                    mNaverTTSTask = new NaverTTSTask();
+                    mNaverTTSTask.execute(mTextMessage);
+                    isClicked = false;
 
+                    message_txt.setText(mText);
+                    view_color.setBackground(getResources().getDrawable(R.color.cblue));
+                    image_face.setImageResource(R.mipmap.ic_bad);
+                } else {
+                    String mText;
+                    mText = "기사님 더워여우어어";
+                    mTextMessage = new String[]{mText};
+                    mNaverTTSTask = new NaverTTSTask();
+                    mNaverTTSTask.execute(mTextMessage);
+                    isClicked = true;
+
+                    message_txt.setText(mText);
+                    view_color.setBackground(getResources().getDrawable(R.color.cred));
+                    image_face.setImageResource(R.mipmap.ic_bad);
+                }
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        message_txt.setText(getString(R.string.nothing_txt));
+                        view_color.setBackground(getResources().getDrawable(R.color.cgray));
+                        image_face.setImageResource(R.mipmap.ic_good);
+                    }
+                }, 2970);
+            }
+        });
     }
 
     private class NaverTTSTask extends AsyncTask<String[], Void, String> {

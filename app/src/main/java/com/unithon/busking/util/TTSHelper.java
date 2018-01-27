@@ -29,9 +29,9 @@ public class TTSHelper {
         String clientId = "4W1mScFleCGfFqwG9DYu";//애플리케이션 클라이언트 아이디값";
         String clientSecret = "677LsQMkka";//애플리케이션 클라이언트 시크릿값";
         try {
-//            String text = URLEncoder.encode(args[0], "UTF-8"); // 13자
-            String st = "아즈씨 더워요우오우오우";
-            String text = URLEncoder.encode(st, "UTF-8"); // 13자
+            String text = URLEncoder.encode(args[0], "UTF-8"); // 13자
+            //String st = "아즈씨 더워요우오우오우";
+            //String text = URLEncoder.encode(st, "UTF-8"); // 13자
             String apiURL = "https://openapi.naver.com/v1/voice/tts.bin";
             URL url = new URL(apiURL);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();

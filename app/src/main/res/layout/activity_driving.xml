@@ -9,12 +9,12 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="56dp"
         android:background="@color/corange"
         android:gravity="center"
         android:text="@string/driving_txt"
         android:textColor="@color/cwhite"
-        android:textSize="15sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <TextView
@@ -63,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="25dp"
         android:orientation="horizontal">
 
         <ImageView

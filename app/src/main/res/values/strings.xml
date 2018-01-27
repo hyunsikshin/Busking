@@ -8,4 +8,5 @@
     <string name="driving_txt">운행중</string>
     <string name="nothing_txt">아직 문의사항이 없습니다</string>
     <string name="end_txt">운행종료</string>
+    <string name="list_thx">칭찬목록</string>
 </resources>

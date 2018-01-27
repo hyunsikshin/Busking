@@ -30,6 +30,9 @@ public class MessageActivity extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
+        myDataSet = new String[]{"친절한 인사 감사합니다.", "안전운전 좋아요!", "친절한 인사 감사합니다.",
+        "난폭운전하지 않아서 좋아요!"};
+
         // specify an adapter (see also next example)
         mAdapter = new MessageAdapter(myDataSet);
         mRecyclerView.setAdapter(mAdapter);
