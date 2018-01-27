@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Busking</string>
+    <string name="OAUTH_CLIENT_ID">4W1mScFleCGfFqwG9DYu</string>
+    <string name="OAUTH_CLIENT_SECRET">677LsQMkka</string>
+    <string name="OAUTH_CLIENT_NAME">Busking</string>
+    <string name="message_box">메세지함</string>
+    <string name="start_drive">운행시작</string>
+    <string name="driving_txt">운행중</string>
+</resources>
