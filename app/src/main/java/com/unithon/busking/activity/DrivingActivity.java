@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.unithon.busking.R;
@@ -17,8 +19,12 @@ public class DrivingActivity extends AppCompatActivity {
     private NaverTTSTask mNaverTTSTask;
     private TTSHelper ttsHelper;
     TextView client_message;
+    LinearLayout btn_end;
     String[] mTextMessage;
     Context mContext;
+    ImageView image_face;
+    TextView message_txt;
+    TextView view_color;
 
 
     @Override
@@ -28,20 +34,25 @@ public class DrivingActivity extends AppCompatActivity {
         mContext = this;
 
         ttsHelper = new TTSHelper();
-        //client_message = (TextView) findViewById(R.id.message_txt);
 
-        String mText;
-        mText = "";
-        mTextMessage = new String[]{mText};
+        view_color = (TextView) findViewById(R.id.view_color);
+        message_txt = (TextView) findViewById(R.id.message_txt);
+        image_face = (ImageView) findViewById(R.id.image_face);
+        btn_end = (LinearLayout) findViewById(R.id.btn_end);
 
-        Button btn_sample = (Button) findViewById(R.id.btn_sample);
-        btn_sample.setOnClickListener(new View.OnClickListener() {
+        btn_end.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mNaverTTSTask = new NaverTTSTask();
-                mNaverTTSTask.execute(mTextMessage);
+                finish();
             }
         });
+
+        String mText;
+        mText = String.valueOf(message_txt.getText());
+        mTextMessage = new String[]{mText};
+
+        /*mNaverTTSTask = new NaverTTSTask();
+        mNaverTTSTask.execute(mTextMessage);*/
 
     }
 

@@ -63,11 +63,6 @@ public class MainActivity extends AppCompatActivity {
                 String refreshToken = mOAuthLoginModule.getRefreshToken(mContext);
                 long expiresAt = mOAuthLoginModule.getExpiresAt(mContext);
                 String tokenType = mOAuthLoginModule.getTokenType(mContext);
-               /* mOauthAT.setText(accessToken);
-                mOauthRT.setText(refreshToken);
-                mOauthExpires.setText(String.valueOf(expiresAt));
-                mOauthTokenType.setText(tokenType);
-                mOAuthState.setText(mOAuthLoginModule.getState(mContext).toString());*/
 
                 finish();
                 startActivity(new Intent(mContext, DriverActivity.class));
