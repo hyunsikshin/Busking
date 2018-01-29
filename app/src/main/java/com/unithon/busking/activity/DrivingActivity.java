@@ -57,8 +57,8 @@ public class DrivingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (isClicked) {
-                    String mText;
-                    mText = "기사님 추워여우어으";
+                    String mText; //GCM 연동 시 여기에 string 받아와서 넣으면됨
+                    mText = "기사님 추워여우어으"; //말하게 될 string
                     mTextMessage = new String[]{mText};
                     mNaverTTSTask = new NaverTTSTask();
                     mNaverTTSTask.execute(mTextMessage);
@@ -80,6 +80,8 @@ public class DrivingActivity extends AppCompatActivity {
                     image_face.setImageResource(R.mipmap.ic_bad);
                 }
 
+
+                //기본 상태로 바꿔주기
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
@@ -127,8 +129,6 @@ public class DrivingActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            //방금 받은 파일명의 mp3가 있으면 플레이 시키자. 맞나 여기서 하는거?
-            //아닌가 파일을 만들고 바로 실행되게 해야 하나? AsyncTask 백그라운드 작업중에...?
         }
     }
 

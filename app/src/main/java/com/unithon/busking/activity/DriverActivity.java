@@ -6,8 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.unithon.busking.R;
 
@@ -34,7 +32,7 @@ public class DriverActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_message:
-                startActivity(new Intent(mContext, MesActivity.class));
+                startActivity(new Intent(mContext, MessageActivity.class));
                 break;
 
             case R.id.btn_start:

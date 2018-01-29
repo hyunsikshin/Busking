@@ -26,12 +26,10 @@ public class TTSHelper {
     private static String TAG = "TTSHelper";
 
     public static void main(String[] args, Context mContext) {
-        String clientId = "4W1mScFleCGfFqwG9DYu";//애플리케이션 클라이언트 아이디값";
-        String clientSecret = "677LsQMkka";//애플리케이션 클라이언트 시크릿값";
+        String clientId = "4W1mScFleCGfFqwG9DYu";//애플리케이션 클라이언트 아이디값"
+        String clientSecret = "677LsQMkka";//애플리케이션 클라이언트 시크릿값"
         try {
             String text = URLEncoder.encode(args[0], "UTF-8"); // 13자
-            //String st = "아즈씨 더워요우오우오우";
-            //String text = URLEncoder.encode(st, "UTF-8"); // 13자
             String apiURL = "https://openapi.naver.com/v1/voice/tts.bin";
             URL url = new URL(apiURL);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -42,7 +40,7 @@ public class TTSHelper {
             String postParams = "speaker=mijin&speed=0&text=" + text;
             con.setDoOutput(true);
             con.setDoInput(true);
-            DataOutputStream wr = new DataOutputStream(con.getOutputStream());///여기서 에러 난다?
+            DataOutputStream wr = new DataOutputStream(con.getOutputStream());
             wr.writeBytes(postParams);
             wr.flush();
             wr.close();
@@ -64,7 +62,7 @@ public class TTSHelper {
                     outputStream.write(bytes, 0, read);
                 }
                 is.close();
-                //여기서 바로 재생하도록 하자. mp3파일 재생 어떻게 하지? 구글링!
+                //여기서 바로 재생
                 String Path_to_file = mContext.getFilesDir() + File.separator + tempname + ".mp3";
                 MediaPlayer audioPlay = new MediaPlayer();
                 audioPlay.setAudioStreamType(AudioManager.STREAM_MUSIC);
@@ -83,7 +81,6 @@ public class TTSHelper {
                 br.close();
             }
         } catch (Exception e) {
-            //System.out.println(e);
             e.printStackTrace();
         }
     }
